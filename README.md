@@ -68,6 +68,6 @@ tradePayment.request({
 
 ### 其他API请求参数，请参看以下链接
 
-* - [API列表](https://doc.open.alipay.com/doc2/apiList?docType=4)
-* - [沙箱环境](https://openhome.alipay.com/platform/appDaily.htm?tab=info)
-* - [RSA秘钥生成](https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7386797.0.0.PNdmVN&treeId=58&articleId=103242&docType=1)
+- [API列表](https://doc.open.alipay.com/doc2/apiList?docType=4)
+- [沙箱环境](https://openhome.alipay.com/platform/appDaily.htm?tab=info)
+- [RSA秘钥生成](https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7386797.0.0.PNdmVN&treeId=58&articleId=103242&docType=1)
