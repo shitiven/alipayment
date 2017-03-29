@@ -73,7 +73,7 @@ Alipayment.prototype.getSigned = function(params) {
 
 }
 
-Alipayment.prototype.getRequestURI = function(params) {
+Alipayment.prototype.getRequestParams = function(params) {
 
     params = _.defaults(params, {
         format: "JSON",
@@ -85,7 +85,7 @@ Alipayment.prototype.getRequestURI = function(params) {
 
     params.sign =  encodeURIComponent(this.getSigned(params));
 
-    return this.gateway + "?" + this.getSignString(params);
+    return params;
 
 }
 
@@ -93,13 +93,22 @@ Alipayment.prototype.request = function(params) {
     
     if(DEBUG) console.log("request params: ", params);
 
-    let requestURI = this.getRequestURI(params);
+    let qs = this.getRequestParams(params);
+    let gateway = this.gateway;
     return new Promise(function(resolve, reject) {
-        request.get(requestURI, function(err, res, body) {
+        request.get({
+            url: gateway,
+            qs: qs
+        }, function(err, res, body) {
             if (err) {
                 return reject(err)
             }
-            resolve(body);
+            try{
+                body = JSON.parse(body);
+                resolve(body);
+            }catch(e){
+                reject(e);
+            }
         });
     })
 
