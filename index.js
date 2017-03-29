@@ -91,7 +91,7 @@ Alipayment.prototype.getRequestURI = function(params) {
 
 Alipayment.prototype.request = function(params) {
     
-    if(DEBUG) console.log("request params: ", params);\
+    if(DEBUG) console.log("request params: ", params);
 
     let requestURI = this.getRequestURI(params);
     return new Promise(function(resolve, reject) {
